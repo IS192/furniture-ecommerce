@@ -65,7 +65,7 @@ const Shop = () => {
               </select>
             </div>
           </Col>
-          <Col lg='3' md='6' className='text-end'>
+          {/* <Col lg='3' md='6' className='text-end'>
           <div className="filter__widget">
               <select>
                 <option>Sort By</option>
@@ -73,7 +73,7 @@ const Shop = () => {
                 <option value="descending">Descending</option>
               </select>
             </div>
-          </Col>
+          </Col> */}
           <Col lg='6' md='12'>
             <div className="search__box">
               <input type='text' placeholder='Search...' onChange={handleSearch} />
