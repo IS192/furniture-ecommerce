@@ -7,6 +7,7 @@ const Dashboard = () => {
 
   const {data: products} = useGetData('products');
   const {data: users} = useGetData('users');
+  const {data: sales} = useGetData('sales');
 
   return <>
     <section>
@@ -15,7 +16,7 @@ const Dashboard = () => {
           <Col className="lg-3">
             <div className="revenue__box">
               <h5>Total Sales</h5>
-              <span>$7890</span>
+              <span>3,511,839 KZT</span>
             </div>
           </Col>
           <Col className="lg-3">

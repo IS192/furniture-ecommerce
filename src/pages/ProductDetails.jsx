@@ -128,7 +128,7 @@ const ProductDetails = () => {
                 </div>
                 
                 <div className='d-flex align-items-center gap-5'>
-                  <span className='product__price'>${price}</span>
+                  <span className='product__price'>{price} KZT</span>
                   <span>Category: {category.toUpperCase()}</span>
                 </div>
 

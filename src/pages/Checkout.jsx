@@ -34,14 +34,14 @@ const Checkout = () => {
                   <input type="number" placeholder='Phone number' required />
                 </FormGroup>
                 <FormGroup className="form__group">
-                  <input type="text" placeholder='Street address' required />
+                  <input type="text" placeholder='Address' required />
                 </FormGroup>
                 <FormGroup className="form__group">
                   <input type="text" placeholder='City' required />
                 </FormGroup>
-                <FormGroup className="form__group">
+                {/* <FormGroup className="form__group">
                   <input type="text" placeholder='Postal code' required />
-                </FormGroup>
+                </FormGroup> */}
                 <FormGroup className="form__group">
                   <input type="text" placeholder='Country' required />
                 </FormGroup>
@@ -53,13 +53,13 @@ const Checkout = () => {
                   Total Qty: <span>{totalQty} items</span>
                 </h6>
                 <h6>
-                  Subtotal: <span>${totalAmount}</span>
+                  Subtotal: <span>{totalAmount} KZT</span>
                 </h6>
-                <h6>
-                  <span>Shipping: <br />free shipping</span><span>$0</span>
-                </h6>
+                {/* <h6>
+                  <span>Shipping: <br />free shipping</span><span>0 KZT</span>
+                </h6> */}
                 <h4>
-                  Total Cost: <span>${totalAmount}</span>
+                  Total Cost: <span>{totalAmount} KZT</span>
                 </h4>
                 <button type='submit' style={{background: 'white', color: 'var(--primary-color)', fontWeight: '600'}} className="buy__btn auth__btn w-100" onClick={order}>
                   Place and order

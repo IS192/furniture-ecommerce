@@ -106,7 +106,7 @@ const AddProducts = () => {
                   <div className='d-flex align-items-center justify-content-between gap-5'>
                     <FormGroup className='form__group w-50'>
                       <span>Price</span>
-                      <input type="number" placeholder='$100' value={enterPrice} onChange={e=>setEnterPrice(e.target.value)} required />
+                      <input type="number" placeholder='100000 KZT' value={enterPrice} onChange={e=>setEnterPrice(e.target.value)} required />
                     </FormGroup>
                     <FormGroup className='form__group w-50'>
                       <span>Category</span>

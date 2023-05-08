@@ -50,7 +50,7 @@ const Cart = () => {
               <div>
                 <h6 className='d-flex align-items-center justify-content-between'>
                   Subtotal
-                  <span className='fs-4 fw-bold'>${totalAmount}</span>
+                  <span className='fs-4 fw-bold'>{totalAmount} KZT</span>
                 </h6>
               </div>
               <p className='fs-6 mt-2'>taxes and shipping will calculate in checkout</p>
@@ -86,7 +86,7 @@ const Tr = ({item})=> {
       <img src={item.imgUrl} alt="" />
     </td>
     <td>{item.productName}</td>
-    <td>${item.price}</td>
+    <td>{item.price} KZT</td>
     <td>{item.quantity}px</td>
     <td>
       <motion.i whileTap={{ scale: 1.2 }} onClick={deleteProduct} className="ri-delete-bin-line"></motion.i>
