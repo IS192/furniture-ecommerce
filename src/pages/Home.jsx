@@ -157,7 +157,7 @@ const Home = () => {
       </section>
 
       <section className='popular__category'>
-      <Container>
+        <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
               <h2 className="section__title">Popular in Category</h2>
