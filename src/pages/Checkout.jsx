@@ -8,45 +8,50 @@ import { toast } from 'react-toastify';
 import { db } from '../firebase.config';
 import { setDoc, doc } from 'firebase/firestore';
 
+import {v4} from 'uuid';
+
 const Checkout = () => {
 	const totalQty = useSelector((state) => state.cart.totalQuantity);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
+	const [name, setName] = useState('');
+  	const [email, setEmail] = useState('');
+  	const [phoneNumber, setPhoneNumber] = useState('');
+  	const [address, setAddress] = useState('');
+  	const [city, setCity] = useState('');
+  	const [country, setCountry] = useState('');
 
-  console.log(`name: ${name}`);
-  console.log(`email: ${email}`);
-  console.log(`phoneNumber: ${phoneNumber}`);
-  console.log(`address: ${address}`);
-  console.log(`city: ${city}`);
-  console.log(`country: ${country}`);
+	const newOrderId = v4();
+	const newOrderName = `new_order_${newOrderId}`;
 
-  // console.log(`totalQty: ${totalQty}`);
-  // console.log(`totalAmount: ${totalAmount}`);
+	console.log(`name: ${name}`);
+	console.log(`email: ${email}`);
+	console.log(`phoneNumber: ${phoneNumber}`);
+	console.log(`address: ${address}`);
+	console.log(`city: ${city}`);
+	console.log(`country: ${country}`);
+
+	console.log(`totalQty: ${totalQty}`);
+	console.log(`totalAmount: ${totalAmount}`);
   
 	const order = async (e) => {
 		e.preventDefault();
 
 		try {
-			await setDoc(doc(db, 'orders'), {
-        name,
-        email,
-        phoneNumber,
-        address,
-        city,
-        country,
-        totalQty,
-        totalAmount,
-      });
+			await setDoc(doc(db, 'orders', newOrderName), {
+				name,
+				email,
+				phoneNumber,
+				address,
+				city,
+				country,
+				totalQty,
+				totalAmount,
+      		});
 
 			toast.success('Your order has been successfully completed');
 		} catch (error) {
 			toast.error('Order execution error');
-      console.log(error);
+			console.log(error);
 		}
 	};
 
