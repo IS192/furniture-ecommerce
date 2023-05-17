@@ -6,6 +6,7 @@ import '../styles/checkout.css';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { db } from '../firebase.config';
+import { setDoc, doc } from 'firebase/firestore';
 
 const Checkout = () => {
 	const totalQty = useSelector((state) => state.cart.totalQuantity);
@@ -31,21 +32,21 @@ const Checkout = () => {
 		e.preventDefault();
 
 		try {
-			await db.collection('orders').add({
-				name,
-				email,
-				phoneNumber,
-				address,
-				city,
-				country,
-				// totalQty,
-				// totalAmount,
-			});
+			await setDoc(doc(db, 'orders'), {
+        name,
+        email,
+        phoneNumber,
+        address,
+        city,
+        country,
+        totalQty,
+        totalAmount,
+      });
 
 			toast.success('Your order has been successfully completed');
 		} catch (error) {
 			toast.error('Order execution error');
-            console.log(error);
+      console.log(error);
 		}
 	};
 
