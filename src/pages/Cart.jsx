@@ -17,22 +17,22 @@ const Cart = () => {
 
   return (
     <Helmet title='Cart'>
-      <CommonSection title='Shopping Cart' />
+      <CommonSection title='Корзина' />
       <section>
         <Container>
           <Row>
             <Col lg='9'>
               {cartItems.length===0 ? (
-                <h2 className='fs-4 text-center'>No item added to the cart</h2>
+                <h2 className='fs-4 text-center'>Ни один товар не добавлен в корзину</h2>
               ) : (
                 <table className="table bordered">
                 <thead>
                   <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Delete</th>
+                    <th>Картинка</th>
+                    <th>Название продукта</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                    <th>Удалить</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,20 +49,20 @@ const Cart = () => {
             <Col lg='3'>
               <div>
                 <h6 className='d-flex align-items-center justify-content-between'>
-                  Subtotal
+                  Всего
                   <span className='fs-4 fw-bold'>{totalAmount} KZT</span>
                 </h6>
               </div>
-              <p className='fs-6 mt-2'>taxes and shipping will calculate in checkout</p>
+              <p className='fs-6 mt-2'>доставка бесплатно</p>
               <div>
                 <button className="buy__btn w-100">
                   <Link to='/checkout'>
-                    Checkout
+                    Заказать
                   </Link>
                 </button>
                 <button className="buy__btn w-100 mt-3">
                   <Link to='/shop'>
-                    Continue shopping
+                    Продолжить покупки
                   </Link>
                 </button>
               </div>
@@ -87,7 +87,7 @@ const Tr = ({item})=> {
     </td>
     <td>{item.productName}</td>
     <td>{item.price} KZT</td>
-    <td>{item.quantity}px</td>
+    <td>{item.quantity} шт</td>
     <td>
       <motion.i whileTap={{ scale: 1.2 }} onClick={deleteProduct} className="ri-delete-bin-line"></motion.i>
     </td>

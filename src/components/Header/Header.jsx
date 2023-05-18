@@ -16,15 +16,15 @@ import { toast } from 'react-toastify';
 const nav__links = [
   {
     path:'home',
-    display: 'Home'
+    display: 'Главная'
   },
   {
     path:'shop',
-    display: 'Shop'
+    display: 'Магазин'
   },
   {
     path:'cart',
-    display: 'Cart'
+    display: 'Корзина'
   },
 ]
 
@@ -50,7 +50,7 @@ const Header = () => {
 
   const logout = () => {
     signOut(auth).then(() => {
-      toast.success('Logged out');
+      toast.success('Вы вышли из аккаунта');
       navigate('/home');
     }).catch(err => {
       toast.error(err.message);
@@ -115,11 +115,11 @@ const Header = () => {
               >
                 {
                   currentUser ? (
-                    <span onClick={logout}>Logout</span>
+                    <span onClick={logout}>Выйти</span>
                   ) : (
                     <div className='d-flex align-items-center justify-content-center flex-column'>
-                      <Link to='/signup'>Signup</Link>
-                      <Link to='/login'>Login</Link>
+                      <Link to='/signup'>Регистрация</Link>
+                      <Link to='/login'>Авторизация</Link>
                       <Link to='/dashboard'>Dashboard</Link>
                     </div>
                   )

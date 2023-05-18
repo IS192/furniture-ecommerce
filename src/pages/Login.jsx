@@ -30,7 +30,7 @@ const Login = () => {
 
       console.log(user);
       setLoading(false);
-      toast.success('Successfully logged in');
+      toast.success('Вы вошли в сайт');
       navigate("/checkout");
 
     } catch (error) {
@@ -45,20 +45,20 @@ const Login = () => {
         <Container>
           <Row>
             {loading ? (<Col lg='12' className='text-center'>
-                <h5 className='fw-bold'>Loading...</h5></Col>) : (<Col lg='6' className='m-auto text-center'>
-              <h3 className='fw-bold mb-4'>Login</h3>
+                <h5 className='fw-bold'>Загрузка...</h5></Col>) : (<Col lg='6' className='m-auto text-center'>
+              <h3 className='fw-bold mb-4'>Авторизация</h3>
 
               <Form className='auth__form' onSubmit={signIn}>
                 <FormGroup className='form__group'>
-                  <input type="email" placeholder='Enter your email' value={email} onChange={e => setEmail(e.target.value)} />
+                  <input type="email" placeholder='Введите свой Email' value={email} onChange={e => setEmail(e.target.value)} />
                 </FormGroup>
                 <FormGroup className='form__group'>
-                  <input type="password" placeholder='Enter your password' value={password} onChange={e => setPassword(e.target.value)} />
+                  <input type="password" placeholder='Введите свой пароль' value={password} onChange={e => setPassword(e.target.value)} />
                 </FormGroup>
-                <button type='submit' className="buy__btn auth__btn">Login</button>
+                <button type='submit' className="buy__btn auth__btn">Войти</button>
                 <p>
-                  Don't have an account? 
-                  <Link to={'/signup'}>Create an account</Link>
+                  У вас нет аккаунта? 
+                  <Link to={'/signup'}> Создайте аккаунт</Link>
                 </p>
               </Form>
             </Col>)

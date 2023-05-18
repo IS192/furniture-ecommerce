@@ -62,12 +62,12 @@ const Signup = () => {
 
       setLoading(false)
 
-      toast.success('Account created ');
+      toast.success('Аккаунт создан');
       navigate('/login');
 
     } catch (error) {
       setLoading(false)
-      toast.error('something went wrong');
+      toast.error('Что-то пошло не так');
     }
 
   }
@@ -79,29 +79,29 @@ const Signup = () => {
           <Row>
             {loading? 
                 <Col lg='12' className='text-center'>
-                  <h5 className='fw-bold'>Loading...</h5>
+                  <h5 className='fw-bold'>Загрузка...</h5>
                 </Col>
                : 
                 <Col lg='6' className='m-auto text-center'>
-                  <h3 className='fw-bold mb-4'>Signup</h3>
+                  <h3 className='fw-bold mb-4'>Регистрация</h3>
 
                   <Form className='auth__form' onSubmit={signup}>
                     <FormGroup className='form__group'>
-                      <input type="text" placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+                      <input type="text" placeholder='Имя пользователя' value={username} onChange={e => setUsername(e.target.value)} />
                     </FormGroup>
                     <FormGroup className='form__group'>
-                      <input type="email" placeholder='Enter your email' value={email} onChange={e => setEmail(e.target.value)} />
+                      <input type="email" placeholder='Введите ваш Email' value={email} onChange={e => setEmail(e.target.value)} />
                     </FormGroup>
                     <FormGroup className='form__group'>
-                      <input type="password" placeholder='Enter your password' value={password} onChange={e => setPassword(e.target.value)} />
+                      <input type="password" placeholder='Введите ваш пароль' value={password} onChange={e => setPassword(e.target.value)} />
                     </FormGroup>
                     <FormGroup className='form__group'>
                       <input type="file" onChange={e => setFile(e.target.files[0])} />
                     </FormGroup>
-                    <button type='submit' className="buy__btn auth__btn">Create and Account</button>
+                    <button type='submit' className="buy__btn auth__btn">Создать Аккаунт</button>
                     <p>
-                      Already have an account? 
-                      <Link to={'/login'}>Login</Link>
+                      Уже имеете аккаунт?
+                      <Link to={'/login'}> Войдите</Link>
                     </p>
                   </Form>
                 </Col>

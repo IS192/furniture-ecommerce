@@ -48,7 +48,7 @@ const Shop = () => {
   }
 
   return <Helmet title='shop'>
-    <CommonSection title='Products' />
+    <CommonSection title='Продукты' />
 
     <section>
       <Container>
@@ -56,12 +56,12 @@ const Shop = () => {
           <Col lg='3' md='6'>
             <div className="filter__widget">
               <select onChange={handleFilter}>
-                <option>Filter By Category</option>
-                <option value="sofa">Sofa</option>
-                <option value="mobile">Mobile</option>
-                <option value="chair">Chair</option>
-                <option value="watch">Watch</option>
-                <option value="wireless">Wireless</option>
+                <option>Фильтровать по категории</option>
+                <option value="sofa">Диваны</option>
+                <option value="mobile">Мобильные телефоны</option>
+                <option value="chair">Стулы</option>
+                <option value="watch">Часы</option>
+                <option value="wireless">Аксессуары</option>
               </select>
             </div>
           </Col>
@@ -76,7 +76,7 @@ const Shop = () => {
           </Col> */}
           <Col lg='6' md='12'>
             <div className="search__box">
-              <input type='text' placeholder='Search...' onChange={handleSearch} />
+              <input type='text' placeholder='Поиск...' onChange={handleSearch} />
               <span>
                 <i class="ri-search-line"></i>
               </span>
@@ -90,7 +90,7 @@ const Shop = () => {
       <Container>
         <Row>
           {productsData.length === 0? (
-              <h1 className='text-center fs-4'>No products are found</h1>
+              <h1 className='text-center fs-4'>Товары не найдены</h1>
             ) : (
               <ProductsList data={productsData} />
           )}

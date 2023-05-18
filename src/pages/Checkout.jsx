@@ -48,27 +48,27 @@ const Checkout = () => {
 				totalAmount,
       		});
 
-			toast.success('Your order has been successfully completed');
+			toast.success('Ваш заказ был завершен успешно');
 		} catch (error) {
-			toast.error('Order execution error');
+			toast.error('Ошибка! Ваш заказ не завершен!');
 			console.log(error);
 		}
 	};
 
 	return (
 		<Helmet title='Checkout'>
-			<CommonSection title='Checkout' />
+			<CommonSection title='Страница заказа' />
 			<section>
 				<Container>
 					<Row>
 						<Col lg='8'>
-							<h6 className='mb-4 fw-bold'>Billing Information</h6>
+							<h6 className='mb-4 fw-bold'>Платежная информация</h6>
 							<Form className='billing__form'>
 								<FormGroup className='form__group'>
                 <input
                   onChange={(e) => setName(e.target.value)}
                   type='text'
-                  placeholder='Enter your name'
+                  placeholder='Ваше имя'
                   required
                 />
 								</FormGroup>
@@ -76,7 +76,7 @@ const Checkout = () => {
 									<input
                     onChange={(e) => setEmail(e.target.value)}
 										type='email'
-										placeholder='Enter your email'
+										placeholder='Адрес электронной почты'
 										required
 									/>
 								</FormGroup>
@@ -84,7 +84,7 @@ const Checkout = () => {
 									<input
                     onChange={(e) => setPhoneNumber(e.target.value)}
 										type='number'
-										placeholder='Phone number'
+										placeholder='Номер телефона'
 										required
 									/>
 								</FormGroup>
@@ -92,7 +92,7 @@ const Checkout = () => {
 									<input
                     onChange={(e) => setAddress(e.target.value)}
 										type='text'
-										placeholder='Address'
+										placeholder='Адрес'
 										required
 									/>
 								</FormGroup>
@@ -100,7 +100,7 @@ const Checkout = () => {
 									<input
                     onChange={(e) => setCity(e.target.value)}
 										type='text'
-										placeholder='City'
+										placeholder='Город'
 										required
 									/>
 								</FormGroup>
@@ -111,7 +111,7 @@ const Checkout = () => {
 									<input
                     onChange={(e) => setCountry(e.target.value)}
 										type='text'
-										placeholder='Country'
+										placeholder='Страна'
 										required
 									/>
 								</FormGroup>
@@ -120,16 +120,16 @@ const Checkout = () => {
 						<Col lg='4'>
 							<div className='checkout__cart'>
 								<h6>
-									Total Qty: <span>{totalQty} items</span>
+									Общее количество: <span>{totalQty} товаров</span>
 								</h6>
 								<h6>
-									Subtotal: <span>{totalAmount} KZT</span>
+									Промежуточный итог: <span>{totalAmount} KZT</span>
 								</h6>
 								{/* <h6>
                   <span>Shipping: <br />free shipping</span><span>0 KZT</span>
                 </h6> */}
 								<h4>
-									Total Cost: <span>{totalAmount} KZT</span>
+									Общая стоимость: <span>{totalAmount} KZT</span>
 								</h4>
 								<button
 									type='submit'
@@ -141,7 +141,7 @@ const Checkout = () => {
 									className='buy_btn auth_btn w-100'
 									onClick={order}
 								>
-									Place and order
+									Заказать
 								</button>
 							</div>
 						</Col>

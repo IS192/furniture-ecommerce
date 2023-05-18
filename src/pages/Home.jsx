@@ -61,12 +61,12 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className="hero_content">
-                <p className="hero__subtitle">Trending product in {year}</p>
-                <h2>Make Your Interior More Minimalistic & Modern </h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum delectus animi ipsa esse libero ipsam neque aliquid. Commodi, placeat culpa.</p>
+                <p className="hero__subtitle">Трендовый продукт в {year}</p>
+                <h2>Сделайте свой интерьер более минималистичным и современным </h2>
+                <p>Сделайте свой интерьер более минималистичным и современным.</p>
                 <motion.button whileTap={{scale: 1.1}} className="buy__btn">
                   <Link to='/shop'>
-                    Shop now
+                    Купить сейчас
                   </Link>
                 </motion.button>
               </div>
@@ -116,7 +116,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              <h2 className="section__title">New Arrivals</h2>
+              <h2 className="section__title">Новые поступления</h2>
             </Col>
             {
               loading ? (
@@ -141,12 +141,12 @@ const Home = () => {
           <Row>
             <Col lg='6' md='12' className='count__down-col'>
               <div className="clock__top-content">
-                <h4 className='text-white fs-6 mb-2'>Limited Offers</h4>
-                <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
+                <h4 className='text-white fs-6 mb-2'>Ограниченные предложения</h4>
+                <h3 className='text-white fs-5 mb-3'>Качественное кресло</h3>
               </div>
               <Clock />
               <motion.button whileTap={{scale: 1.1}} className="buy__btn store__btn">
-                <Link to='./shop/'>Visit Store</Link>
+                <Link to='/shop/'>Посетить магазин</Link>
               </motion.button>
             </Col>
             <Col lg='6' md='12' className='text-end counter__img'>
@@ -160,7 +160,8 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              <h2 className="section__title">Popular in Category</h2>
+              {/* <h2 className="section__title">Popular in Category</h2> */}
+              <h2 className="section__title"></h2>
             </Col>
             {
               loading ? (

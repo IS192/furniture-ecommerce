@@ -71,11 +71,11 @@ const AddProducts = () => {
       // })
 
       setLoading(false)
-      toast.success("product successfully added!");
+      toast.success("Продукт успешно добавлен!");
       navigate('/dashboard/all-products');
     } catch(err) {
       setLoading(false)
-      toast.error('product not added!')
+      toast.error('Продукт не добавлен!')
     }
 
 
@@ -89,44 +89,44 @@ const AddProducts = () => {
           <Col lg='12'>
             {
               loading ? <h4 className='py-5'>Loading...</h4> : <>
-                <h4 className='mb-5'>Add Product</h4>
+                <h4 className='mb-5'>Добавить продукт</h4>
                 <Form onSubmit={addProduct}>
                   <FormGroup className='form__group'>
-                    <span>Product title</span>
+                    <span>Название</span>
                     <input type="text" placeholder='Double sofa' value={enterTitle} onChange={e=>setEnterTitle(e.target.value)} required />
                   </FormGroup>
                   <FormGroup className='form__group'>
-                    <span>Short Description</span>
+                    <span>Краткое описание</span>
                     <input type="text" placeholder='lorem...' value={enterShortDesc} onChange={e=>setEnterShortDesc(e.target.value)} required />
                   </FormGroup>
                   <FormGroup className='form__group'>
-                    <span> Description</span>
+                    <span> Описание</span>
                     <input type="text" placeholder='Description...' value={enterDescription} onChange={e=>setEnterDescription(e.target.value)} required />
                   </FormGroup>
                   <div className='d-flex align-items-center justify-content-between gap-5'>
                     <FormGroup className='form__group w-50'>
-                      <span>Price</span>
+                      <span>Цена</span>
                       <input type="number" placeholder='100000 KZT' value={enterPrice} onChange={e=>setEnterPrice(e.target.value)} required />
                     </FormGroup>
                     <FormGroup className='form__group w-50'>
-                      <span>Category</span>
+                      <span>Категория</span>
                       <select className='w-100 p-2' value={enterCategory} onChange={e=>setEnterCategory(e.target.value)}>
                         <option>Select category</option>
-                        <option value="chair">Chair</option>
-                        <option value="sofa">Sofa</option>
-                        <option value="mobile">Mobile</option>
-                        <option value="watch">Watch</option>
-                        <option value="wireless">Wireless</option>
+                        <option value="chair">Стул</option>
+                        <option value="sofa">Диван</option>
+                        <option value="mobile">Мобильный телефон</option>
+                        <option value="watch">Часы</option>
+                        <option value="wireless">Аксессуары</option>
                       </select>
                     </FormGroup>
                   </div>
                   <div>
                     <FormGroup className='form__group'>
-                      <span>Product Image</span>
+                      <span>Изображение продукта</span>
                       <input type="file" onChange={e=>setEnterProductImg(e.target.files[0])} required />
                     </FormGroup>
                   </div>
-                  <button className='buy__btn' type='submit'>Add Product</button>
+                  <button className='buy__btn' type='submit'>Добавить продукт</button>
                 </Form>
               </>
             }

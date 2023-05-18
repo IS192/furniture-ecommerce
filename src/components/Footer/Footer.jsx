@@ -17,58 +17,55 @@ const Footer = () => {
             </div>
           </div>
           <p className="footer__text mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ex et asperiores sed in quod earum, dolor dignissimos maiores impedit.
+          Furniture-App - ваш идеальный интернет-магазин мебели! Мы предлагаем широкий ассортимент качественной мебели для всех комнат вашего дома по доступным ценам. Кроме этого вы можете покупать телефоны и аксессуары.
           </p>
         </Col>
         <Col lg='3' md='4' className='mb-4'>
           <div className='footer__quick-links'>
-            <h4 className="quick__links-title">Top Categories</h4>
+            <h4 className="quick__links-title">Топ категории</h4>
             <ListGroup>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Mobile Phones</Link>
+                <Link to='#'>Мобильные телефоны</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Modern Sofa</Link>
+                <Link to='#'>Современные диваны</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Arm Chair</Link>
+                <Link to='#'>Кресло</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Smart Watches</Link>
+                <Link to='#'>Умные часы</Link>
               </ListGroupItem>
             </ListGroup>
           </div>
         </Col>
         <Col lg='2' md='3' className='mb-4'>
           <div className='footer__quick-links'>
-          <h4 className="quick__links-title">Useful Links</h4>
+          <h4 className="quick__links-title">Полезные ссылки</h4>
             <ListGroup>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/shop'>Магазин</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/cart'>Cart</Link>
+                <Link to='/cart'>Корзина</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/login'>Login</Link>
-              </ListGroupItem>
-              <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Privacy Policy</Link>
+                <Link to='/login'>Вход</Link>
               </ListGroupItem>
             </ListGroup>
           </div>
         </Col>
         <Col lg='1' className='mb-4'>
         <div className='footer__quick-links'>
-          <h4 className="quick__links-title">Useful Links</h4>
+          <h4 className="quick__links-title">Наши контакты</h4>
             <ListGroup className='footer__contact'>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-map-pin-line"></i></span>
-                <p>Almaty,Kazakhstan</p>
+                <p>Алматы, Казахстан</p>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-phone-line"></i></span>
-                <p>+0881234567890</p>
+                <p>+7(708)1234567</p>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-mail-line"></i></span>
@@ -78,7 +75,7 @@ const Footer = () => {
           </div>
         </Col>
         <Col lg='12'>
-          <p className="footer__copyright">Copyright {year} developed by @programmer_2003. All rights reserved. </p>
+          <p className="footer__copyright">Алматы {year}, разработан @IS-192. Все права защищены. </p>
         </Col>
       </Row>
     </Container>

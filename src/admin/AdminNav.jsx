@@ -11,7 +11,7 @@ const admin__nav = [
         path: '/dashboard'
     },
     {
-        display: 'All-Products',
+        display: 'Продукты',
         path: '/dashboard/all-products'
     },
     // {
@@ -19,7 +19,7 @@ const admin__nav = [
     //     path: '/dashboard/orders'
     // },
     {
-        display: 'Users',
+        display: 'Пользователи',
         path: '/dashboard/users'
     },
 ]
@@ -38,7 +38,7 @@ const AdminNav = () => {
                             <h2>FurnitureApp</h2>
                         </div>
                         <div className="search__box">
-                            <input type="text" placeholder='Search...' />
+                            <input type="text" placeholder='Поиск...' />
                             <span><i class="ri-search-line"></i></span>
                         </div>
                         <div className="admin__nav-top-right">

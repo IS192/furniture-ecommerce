@@ -11,7 +11,7 @@ const AllProducts = () => {
 
   const deleteProduct = async(id)=>{
     await deleteDoc(doc(db, 'products', id));
-    toast.success('Deleted!');
+    toast.success('Товар удален!');
   }
 
   return (
@@ -22,11 +22,11 @@ const AllProducts = () => {
             <table className='table'>
               <thead>
                 <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Action</th>
+                  <th>Картинка</th>
+                  <th>Название</th>
+                  <th>Категория</th>
+                  <th>Цена</th>
+                  <th>Действие</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,7 +46,7 @@ const AllProducts = () => {
                           {" "}
                           <button onClick={()=>{
                             deleteProduct(item.id);
-                          }} className='btn btn-danger'>Delete</button>
+                          }} className='btn btn-danger'>Удалить</button>
                         </th>
                       </td>
                     </tr>
