@@ -31,7 +31,7 @@ const AllProducts = () => {
               </thead>
               <tbody>
                 {loading ? (
-                  <h4 className='py-5 text-center fw-bold'>Loading...</h4>
+                  <h4 className='py-5 text-center fw-bold'>Загрузка...</h4>
                 ) : (
                   productsData.map(item=>(
                     <tr key={item.id}>
