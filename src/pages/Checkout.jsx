@@ -57,7 +57,7 @@ const Checkout = () => {
 
 	return (
 		<Helmet title='Checkout'>
-			<CommonSection title='Checkout' />
+			<CommonSection title='Страница заказа' />
 			<section>
 				<Container>
 					<Row>
@@ -120,16 +120,16 @@ const Checkout = () => {
 						<Col lg='4'>
 							<div className='checkout__cart'>
 								<h6>
-									Total Qty: <span>{totalQty} items</span>
-								</h6>
-								<h6>
-									Subtotal: <span>{totalAmount} KZT</span>
+									Общее количество: <span>{totalQty} items</span>
 								</h6>
 								{/* <h6>
-                  <span>Shipping: <br />free shipping</span><span>0 KZT</span>
-                </h6> */}
+									Subtotal: <span>{totalAmount} KZT</span>
+								</h6> */}
+								<h6>
+                  <span>Доствака: <br /></span><span>0 KZT</span>
+                </h6>
 								<h4>
-									Total Cost: <span>{totalAmount} KZT</span>
+									Общая стоимость: <span>{totalAmount} KZT</span>
 								</h4>
 								<button
 									type='submit'
@@ -141,7 +141,7 @@ const Checkout = () => {
 									className='buy_btn auth_btn w-100'
 									onClick={order}
 								>
-									Place and order
+									Заказать
 								</button>
 							</div>
 						</Col>
