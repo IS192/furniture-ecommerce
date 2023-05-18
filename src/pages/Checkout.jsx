@@ -65,12 +65,12 @@ const Checkout = () => {
 							<h6 className='mb-4 fw-bold'>Платежная информация</h6>
 							<Form className='billing__form'>
 								<FormGroup className='form__group'>
-                <input
-                  onChange={(e) => setName(e.target.value)}
-                  type='text'
-                  placeholder='Введите ваше имя'
-                  required
-                />
+									<input
+										onChange={(e) => setName(e.target.value)}
+										type='text'
+										placeholder='Введите ваше имя'
+										required
+										/>
 								</FormGroup>
 								<FormGroup className='form__group'>
 									<input
