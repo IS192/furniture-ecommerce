@@ -13,8 +13,8 @@ const serviceData = [
   },
   {
     icon: "ri-secure-payment-line",
-    title: "Безопасный заказ",
-    subtitle: "Безопасный заказ.",
+    title: "Страница заказа",
+    subtitle: "Удобная страница заказа.",
     bg: "#e2f2b2",
   },
   {
