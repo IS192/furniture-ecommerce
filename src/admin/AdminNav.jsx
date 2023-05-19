@@ -14,10 +14,10 @@ const admin__nav = [
         display: 'Продукты',
         path: '/dashboard/all-products'
     },
-    // {
-    //     display: 'Orders',
-    //     path: '/dashboard/orders'
-    // },
+    {
+        display: 'Заказы',
+        path: '/dashboard/orders'
+    },
     {
         display: 'Пользователи',
         path: '/dashboard/users'
@@ -58,7 +58,8 @@ const AdminNav = () => {
                             {
                                 admin__nav.map((item, index) => (
                                     <li className="admin__menu-item" key={index}>
-                                        <NavLink to={item.path} className={navClass=>navClass.isActive ? 'active__admin-menu' : '' }>{item.display}</NavLink>
+                                        <NavLink to={item.path} className={navClass=>navClass.isActive ? 'active__admin-menu' : '' }>{item.display}
+                                        </NavLink>
                                     </li>
                                 ))
                             }
