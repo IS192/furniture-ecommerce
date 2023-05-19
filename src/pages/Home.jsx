@@ -18,20 +18,20 @@ const Home = () => {
 
   const { data: products, loading } = useGetData('products')
 
-  const [trendingProducts, setTrendingProducts] = useState([]);
-  const [bestSalesProducts, setBestSalesProducts] = useState([]);
+  const [chairProducts, setChairProducts] = useState([]);
+  const [sofaProducts, setSofaProducts] = useState([]);
   const [mobileProducts, setMobileProducts] = useState([]);
   const [wirelessProducts, setWirelessProducts] = useState([]);
-  const [popularProducts, setPopularProducts] = useState([]);
+  const [watchProducts, setWatchProducts] = useState([]);
   
   const year = new Date().getFullYear()
 
   useEffect(() => {
-    const filteredTrendingProducts = products.filter(
+    const filteredChairProducts = products.filter(
       item => item.category === 'chair'
     );
     
-    const filteredBestSalesProducts = products.filter(
+    const filteredSofaProducts = products.filter(
       item => item.category === 'sofa'
     );
     
@@ -43,15 +43,15 @@ const Home = () => {
       item => item.category === 'wireless'
     );
     
-    const filteredPopularProducts = products.filter(
+    const filteredWatchProducts = products.filter(
       item => item.category === 'watch'
     );
     
-    setTrendingProducts(filteredTrendingProducts);
-    setBestSalesProducts(filteredBestSalesProducts);
+    setChairProducts(filteredChairProducts);
+    setSofaProducts(filteredSofaProducts);
     setMobileProducts(filteredMobileProducts);
     setWirelessProducts(filteredWirelessProducts);
-    setPopularProducts(filteredPopularProducts);
+    setWatchProducts(filteredWatchProducts);
   }, [products]);
 
   return (
@@ -82,54 +82,47 @@ const Home = () => {
 
       <Services />
 
-      {/* <section className="trending__products">
+      <section className="trending__products">
         <Container>
           <Row>
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>
-                Trending Products
+                Cтулы
               </h2>
             </Col>
             {
-              loading ? <h5 className='fw-bold'>Loading...</h5> : <ProductsList data={trendingProducts} />
+              loading ? <h5 className='fw-bold'>Загрузка...</h5> : <ProductsList data={chairProducts} />
             }
           </Row>
         </Container>
-      </section> */}
+      </section>
 
-      {/* <section className="best__sales">
+      <section className="best__sales">
         <Container>
           <Row>
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>
-                Best Sales
+                Диваны
               </h2>
             </Col>
             {
-              loading ? <h5 className='fw-bold'>Loading...</h5> : <ProductsList data={bestSalesProducts}/>
+              loading ? <h5 className='fw-bold'>Загрузка...</h5> : <ProductsList data={sofaProducts}/>
             }
           </Row>
         </Container>
-      </section> */}
+      </section>
 
       <section className="new__arrivals">
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              <h2 className="section__title">Новые поступления</h2>
+              <h2 className="section__title">Мобильные телефоны</h2>
             </Col>
             {
               loading ? (
-                <h5 className='fw-bold'>Loading...</h5>
+                <h5 className='fw-bold'>Загрузка...</h5>
               ) : (
                 <ProductsList data={mobileProducts} />
-              )
-            }
-            {
-              loading ? (
-                <h5 className='fw-bold'>Loading...</h5>
-              ) : (
-                <ProductsList data={wirelessProducts} />
               )
             }
           </Row>
@@ -156,18 +149,37 @@ const Home = () => {
         </Container>
       </section>
 
+      
       <section className='popular__category'>
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              {/* <h2 className="section__title">Popular in Category</h2> */}
+              <h2 className="section__title">Часы</h2>
               <h2 className="section__title"></h2>
             </Col>
             {
               loading ? (
-                <h5 className='fw-bold'>Loading...</h5>
+                <h5 className='fw-bold'>Загрузка...</h5>
               ) : (
-                <ProductsList data={popularProducts} />
+                <ProductsList data={watchProducts} />
+              )
+            }
+          </Row>
+        </Container>
+      </section>
+      
+      <section className='popular__category'>
+        <Container>
+          <Row>
+            <Col lg='12' className='text-center mb-5'>
+              <h2 className="section__title">Аксессуары</h2>
+              <h2 className="section__title"></h2>
+            </Col>
+            {
+              loading ? (
+                <h5 className='fw-bold'>Загрузка...</h5>
+              ) : (
+                <ProductsList data={wirelessProducts} />
               )
             }
           </Row>
