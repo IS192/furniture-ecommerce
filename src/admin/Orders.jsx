@@ -17,33 +17,34 @@ const Orders = () => {
             <table className='table'>
               <thead>
                 <tr>
+                  <th>Картинка</th>
+                  <th>Имя</th>
+                  <th>email</th>
+                  <th>Номер телефона</th>
                   <th>Адрес</th>
                   <th>Город</th>
                   <th>Страна</th>
-                  <th>email</th>
-                  <th>Имя</th>
-                  <th>Номер телефона</th>
-                  <th>Общая сумма</th>
                   <th>Общее количество</th>
+                  <th>Общая сумма</th>
                 </tr>
               </thead>
               <tbody>
                 {loading ? (
                   <h4 className='py-5 text-center fw-bold'>Загрузка...</h4>
                 ) : (
-                    ordersData.map(item=>(
-                    <tr key={item.id}>
+                    ordersData.map(product=>(
+                    <tr key={product.id}>
                       <td>
-                        <img src={item.imgUrl} alt="" />
+                        <img src={product.imgUrl} alt="" />
                       </td>
-                      <td>{item.name}</td>
-                      <td>{item.email}</td>
-                      <td>{item.phoneNumber}</td>
-                      <td>{item.address}</td>
-                      <td>{item.city}</td>
-                      <td>{item.country}</td>
-                      <td>{item.totalQty}</td>
-                      <td>{item.totalAmount}</td>
+                      <td>{product.name}</td>
+                      <td>{product.email}</td>
+                      <td>{product.phoneNumber}</td>
+                      <td>{product.address}</td>
+                      <td>{product.city}</td>
+                      <td>{product.country}</td>
+                      <td>{product.totalQty}</td>
+                      <td>{product.totalAmount}</td>
                     </tr>
                   ))
                 )}
