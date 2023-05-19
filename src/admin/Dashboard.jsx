@@ -28,7 +28,7 @@ const Dashboard = () => {
           </Col>
           <Col className="lg-3">
             <div className="products__box">
-              <h5>Добавленнные продукты</h5>
+              <h5>Продукты</h5>
               <span>{products.length}</span>
             </div>
           </Col>
