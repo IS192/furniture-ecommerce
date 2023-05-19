@@ -7,19 +7,12 @@ const Dashboard = () => {
 
   const {data: products} = useGetData('products');
   const {data: users} = useGetData('users');
-  const {data: sales} = useGetData('sales');
   const {data: orders} = useGetData('orders');
 
   return <>
     <section>
       <Container>
         <Row>
-          {/* <Col className="lg-3">
-            <div className="revenue__box">
-              <h5>Общий доход</h5>
-              <span>{sales.length} KZT</span>
-            </div>
-          </Col> */}
           <Col className="lg-3">
             <div className="order__box">
               <h5>Заказы</h5>

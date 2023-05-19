@@ -9,11 +9,6 @@ const Orders = () => {
 
   const { data: ordersData, loading } = useGetData('orders');
 
-//   const deleteProduct = async(id)=>{
-//     await deleteDoc(doc(db, 'products', id));
-//     toast.success('Товар удален!');
-//   }
-
   return (
     <section>
       <Container>

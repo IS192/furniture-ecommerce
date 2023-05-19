@@ -11,6 +11,10 @@ const admin__nav = [
         path: '/dashboard'
     },
     {
+        display: 'Добавить продукт',
+        path: '/dashboard/add-product'
+    },
+    {
         display: 'Продукты',
         path: '/dashboard/all-products'
     },
