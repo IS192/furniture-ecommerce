@@ -13,7 +13,11 @@ import {v4} from 'uuid';
 const Checkout = () => {
 	const totalQty = useSelector((state) => state.cart.totalQuantity);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
-	const [name, setName] = useState('');
+	
+	const productName = useSelector((state) => state.cart.totalAmount);
+	const productQty = useSelector((state) => state.cart.totalAmount);
+	
+	const [userName, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('');
 	const [address, setAddress] = useState('');
@@ -23,11 +27,11 @@ const Checkout = () => {
 	const newOrderId = v4();
 	const newOrderName = `new_order_${newOrderId}`;
 	
-	// const [orderedProducts, setOrderedProducts] = useState('');
-	// const qty = useSelector((state) => state.cart.qty);
-	// const amount = useSelector((state) => state.cart.amount);
+	const [orderedProducts, setOrderedProducts] = useState('');
+	const qty = useSelector((state) => state.cart.qty);
+	const amount = useSelector((state) => state.cart.amount);
 	
-	console.log(`name: ${name}`);
+	console.log(`name: ${userName}`);
 	console.log(`email: ${email}`);
 	console.log(`phoneNumber: ${phoneNumber}`);
 	console.log(`address: ${address}`);
@@ -42,7 +46,9 @@ const Checkout = () => {
 
 		try {
 			await setDoc(doc(db, 'orders', newOrderName), {
-				name,
+				name: userName,
+				productName: productName,
+				productQty: productQty,
 				email,
 				phoneNumber,
 				address,
@@ -82,14 +88,14 @@ const Checkout = () => {
 										required
 									/>
 								</FormGroup>
-								{/* <FormGroup className='form__group'>
+								<FormGroup className='form__group'>
 									<input
                     					onChange={(e) => setOrderedProducts(e.target.value)}
 										type='text'
 										placeholder='Название продуктов'
 										required
 									/>
-								</FormGroup> */}
+								</FormGroup>
 								<FormGroup className='form__group'>
 									<input
                     					onChange={(e) => setEmail(e.target.value)}

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const OrderedProducts = () => {
 
-  const { data: orderedProductsData, loading: orderedProductsLoading } = useGetData('orderedProducts');
+  const { data: orderedProductsData, loading: orderedProductsLoading } = useGetData('orders');
 
   return (
     <section>
@@ -27,10 +27,10 @@ const OrderedProducts = () => {
                     orderedProductsData.map(orderedProduct => (
                     <tr key={orderedProduct.id}>
                       <td>
-                        {orderedProduct.name}
+                        {orderedProduct.productName}
                       </td>
-                      <td>{orderedProduct.qty} шт</td>
-                      <td>{orderedProduct.amount} KZT</td>
+                      <td>{orderedProduct.productQty} шт</td>
+                      <td>{orderedProduct.productAmount} KZT</td>
                     </tr>
                   ))
                 )}

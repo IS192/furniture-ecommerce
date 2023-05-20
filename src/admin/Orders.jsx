@@ -9,9 +9,9 @@ const Orders = () => {
 
   const navigate = useNavigate(); 
 
-  const navigateToOrderedProducts =()=>{
-    navigate("/dashboard/orderedProducts");
-  }
+  // const navigateToOrderedProducts =()=>{
+  //   navigate("/dashboard/orderedProducts");
+  // }
 
   return (
     <section>
@@ -40,14 +40,16 @@ const Orders = () => {
                     <tr key={product.id}>
                       <td>{product.name}</td>
                       <td>
-                      <button
+                        {/* <button
                           onClick={() => {
                             navigateToOrderedProducts()
                           }}
                           className='btn btn-link'
                         >
                           Посмотреть
-                        </button>
+                        </button> */}
+                        {product.productName}
+                        {product.productQty}
                       </td>
                       <td>{product.email}</td>
                       <td>{product.phoneNumber}</td>
