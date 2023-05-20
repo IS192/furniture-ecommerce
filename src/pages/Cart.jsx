@@ -15,7 +15,7 @@ import {v4} from 'uuid';
 
 const Cart = () => {
 
-  const cartItems = useSelector((state) =>state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const totalQty = useSelector((state) => state.cart.totalQuantity);
 
