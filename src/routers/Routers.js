@@ -14,6 +14,7 @@ import AllProducts from '../admin/AllProducts';
 import Dashboard from '../admin/Dashboard';
 import Users from '../admin/Users';
 import Orders from '../admin/Orders';
+import OrderedProducts from '../admin/OrderedProducts';
 
 const Routers = () => {
   return (
@@ -31,6 +32,7 @@ const Routers = () => {
         <Route path='dashboard/add-product' element={<AddProducts />} />
         <Route path='dashboard/users' element={<Users />} />
         <Route path='dashboard/orders' element={<Orders />} />
+        <Route path='dashboard/orderedProducts' element={<OrderedProducts />} />
       </Route>
 
       {/* 

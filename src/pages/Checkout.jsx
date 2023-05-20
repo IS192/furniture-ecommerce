@@ -14,15 +14,19 @@ const Checkout = () => {
 	const totalQty = useSelector((state) => state.cart.totalQuantity);
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	const [name, setName] = useState('');
-  	const [email, setEmail] = useState('');
-  	const [phoneNumber, setPhoneNumber] = useState('');
-  	const [address, setAddress] = useState('');
-  	const [city, setCity] = useState('');
-  	const [country, setCountry] = useState('');
-
+	const [email, setEmail] = useState('');
+	const [phoneNumber, setPhoneNumber] = useState('');
+	const [address, setAddress] = useState('');
+	const [city, setCity] = useState('');
+	const [country, setCountry] = useState('');
+	
 	const newOrderId = v4();
 	const newOrderName = `new_order_${newOrderId}`;
-
+	
+	// const [orderedProducts, setOrderedProducts] = useState('');
+	// const qty = useSelector((state) => state.cart.qty);
+	// const amount = useSelector((state) => state.cart.amount);
+	
 	console.log(`name: ${name}`);
 	console.log(`email: ${email}`);
 	console.log(`phoneNumber: ${phoneNumber}`);
@@ -47,6 +51,12 @@ const Checkout = () => {
 				totalQty,
 				totalAmount,
       		});
+			
+			// await setDoc(doc(db, 'orderedProducts', newOrderName), {
+			// 	name,
+			// 	qty,
+			// 	amount,
+      		// });
 
 			toast.success('Ваш заказ был завершен успешно');
 		} catch (error) {
@@ -70,11 +80,19 @@ const Checkout = () => {
 										type='text'
 										placeholder='Введите ваше имя'
 										required
-										/>
+									/>
 								</FormGroup>
+								{/* <FormGroup className='form__group'>
+									<input
+                    					onChange={(e) => setOrderedProducts(e.target.value)}
+										type='text'
+										placeholder='Название продуктов'
+										required
+									/>
+								</FormGroup> */}
 								<FormGroup className='form__group'>
 									<input
-                    onChange={(e) => setEmail(e.target.value)}
+                    					onChange={(e) => setEmail(e.target.value)}
 										type='email'
 										placeholder='Адрес электронной почты'
 										required
@@ -82,7 +100,7 @@ const Checkout = () => {
 								</FormGroup>
 								<FormGroup className='form__group'>
 									<input
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    					onChange={(e) => setPhoneNumber(e.target.value)}
 										type='number'
 										placeholder='Номер телефона'
 										required
@@ -90,7 +108,7 @@ const Checkout = () => {
 								</FormGroup>
 								<FormGroup className='form__group'>
 									<input
-                    onChange={(e) => setAddress(e.target.value)}
+										onChange={(e) => setAddress(e.target.value)}
 										type='text'
 										placeholder='Адрес'
 										required
@@ -98,18 +116,15 @@ const Checkout = () => {
 								</FormGroup>
 								<FormGroup className='form__group'>
 									<input
-                    onChange={(e) => setCity(e.target.value)}
+                    					onChange={(e) => setCity(e.target.value)}
 										type='text'
 										placeholder='Город'
 										required
 									/>
 								</FormGroup>
-								{/* <FormGroup className="form__group">
-                  <input type="text" placeholder='Postal code' required />
-                </FormGroup> */}
 								<FormGroup className='form__group'>
 									<input
-                    onChange={(e) => setCountry(e.target.value)}
+                    					onChange={(e) => setCountry(e.target.value)}
 										type='text'
 										placeholder='Страна'
 										required
@@ -120,14 +135,11 @@ const Checkout = () => {
 						<Col lg='4'>
 							<div className='checkout__cart'>
 								<h6>
-									Общее количество: <span>{totalQty} items</span>
+									Общее количество: <span>{totalQty} товар(ов)</span>
 								</h6>
-								{/* <h6>
-									Subtotal: <span>{totalAmount} KZT</span>
-								</h6> */}
 								<h6>
-                  <span>Доствака: <br /></span><span>0 KZT</span>
-                </h6>
+									<span>Доставка: <br /></span><span>Бесплатно</span>
+                				</h6>
 								<h4>
 									Общая стоимость: <span>{totalAmount} KZT</span>
 								</h4>

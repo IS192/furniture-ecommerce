@@ -11,8 +11,8 @@ const ProductsCard = ({ item }) => {
 
   const dispatch = useDispatch();
   const addToCart = () => {
-        dispatch(
-            cartActions.addItem({
+    dispatch(
+        cartActions.addItem({
             id: item.id,
             productName: item.productName,
             price: item.price,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/cart.css';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
@@ -6,14 +6,18 @@ import {Container, Row, Col} from 'reactstrap';
 import { motion } from 'framer-motion';
 import { cartActions } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import useGetData from '../custom-hooks/useGetData';
+import { db } from '../firebase.config';
+import { setDoc, doc } from 'firebase/firestore';
 
 import { Link } from 'react-router-dom';
+import {v4} from 'uuid';
 
 const Cart = () => {
 
-  const cartItems = useSelector((state)=>state.cart.cartItems);
-
-  const totalAmount = useSelector((state)=>state.cart.totalAmount);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const totalQty = useSelector((state) => state.cart.totalQuantity);
 
   return (
     <Helmet title='Cart'>
@@ -49,8 +53,12 @@ const Cart = () => {
             <Col lg='3'>
               <div>
                 <h6 className='d-flex align-items-center justify-content-between'>
-                  Всего
+                  Общая цена
                   <span className='fs-4 fw-bold'>{totalAmount} KZT</span>
+                </h6>
+                <h6 className='d-flex align-items-center justify-content-between'>
+                  Общее количество
+                  <span className='fs-4 fw-bold'>{totalQty} шт</span>
                 </h6>
               </div>
               <p className='fs-6 mt-2'>доставка бесплатно</p>
@@ -62,7 +70,7 @@ const Cart = () => {
                 </button>
                 <button className="buy__btn w-100 mt-3">
                   <Link to='/shop'>
-                    Продолжить покупки
+                    Продолжить покупку
                   </Link>
                 </button>
               </div>

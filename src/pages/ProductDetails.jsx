@@ -49,8 +49,8 @@ const ProductDetails = () => {
     imgUrl, 
     productName, 
     price, 
-    // avgRating, 
-    // reviews, 
+    avgRating, 
+    reviews, 
     description, 
     shortDesc,
     category
@@ -123,7 +123,7 @@ const ProductDetails = () => {
                     </motion.span>
                   </div>
                   <p>
-                    {/* <span>{avgRating}</span> ratings */}
+                    <span>{avgRating}</span> ratings
                   </p>
                 </div>
                 
@@ -157,17 +157,17 @@ const ProductDetails = () => {
                 <div>
                   <div className='product__review mt-5'>
                     <div className="review__wrapper">
-                      {/* <ul>
+                      <ul>
                         {
-                          reviews?.map((item, index)=>(
+                          reviewMsg?.map((item, index)=>(
                             <li kew={index} className='mb-4'>
-                              <h6>Jhon Doe</h6>
+                              <h6>{item.title}</h6>
                               <span>{item.rating} (rating)</span>
                               <p>{item.text}</p>
                             </li>
                           ))
                         }
-                      </ul> */}
+                      </ul>
                       <div className="review__form">
                         <h4>Leave your experience</h4>
                         <form action="" onSubmit={submitHandler}>

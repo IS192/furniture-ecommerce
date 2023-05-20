@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
 
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
@@ -8,44 +8,69 @@ import products from '../assets/data/products';
 import ProductsList from '../components/UI/ProductsList';
 import '../styles/shop.css';
 
+import useGetData from '../custom-hooks/useGetData';
+
 const Shop = () => {
-  const [productsData, setProductsData] = useState(products)
+
+  // 
+    const { data: productsData, setProductsData } = useGetData('products')
+    const [chair, setChairProducts] = useState([]);
+    const [sofa, setSofaProducts] = useState([]);
+    const [mobile, setMobileProducts] = useState([]);
+    const [wireless, setWirelessProducts] = useState([]);
+    const [watch, setWatchProducts] = useState([]);
+    
+    useEffect(() => {
+      // Функция для фильтрации продуктов по категории
+      const filterProductsByCategory = category => {
+        return products.filter(item => item.category === category);
+      };
+  
+      // Фильтрация продуктов при изменении состояния products
+      const filteredChairProducts = filterProductsByCategory('chair');
+      const filteredSofaProducts = filterProductsByCategory('sofa');
+      const filteredMobileProducts = filterProductsByCategory('mobile');
+      const filteredWirelessProducts = filterProductsByCategory('wireless');
+      const filteredWatchProducts = filterProductsByCategory('watch');
+  
+      setChairProducts(filteredChairProducts);
+      setSofaProducts(filteredSofaProducts);
+      setMobileProducts(filteredMobileProducts);
+      setWirelessProducts(filteredWirelessProducts);
+      setWatchProducts(filteredWatchProducts);
+    }, [products]);
+  
+  // 
 
   const handleFilter = e => {
-    const filterValue = e.target.value
-    if (filterValue === 'sofa') {
-      const filteredProducts = products.filter(item=> item.category==='sofa')
-      setProductsData(filteredProducts)
+    const selectedCategory = e.target.value;
+    let filteredProducts = [];
+  
+    if (selectedCategory === 'sofa') {
+      filteredProducts = sofa;
+    } else if (selectedCategory === 'mobile') {
+      filteredProducts = mobile;
+    } else if (selectedCategory === 'chair') {
+      filteredProducts = chair;
+    } else if (selectedCategory === 'watch') {
+      filteredProducts = watch;
+    } else if (selectedCategory === 'wireless') {
+      filteredProducts = wireless;
+    } else {
+      filteredProducts = products;
     }
-
-    if (filterValue === 'mobile') {
-      const filteredProducts = products.filter(item=> item.category==='mobile')
-      setProductsData(filteredProducts)
-    }
-
-    if (filterValue === 'chair') {
-      const filteredProducts = products.filter(item=> item.category==='chair')
-      setProductsData(filteredProducts)
-    }
-
-    if (filterValue === 'watch') {
-      const filteredProducts = products.filter(item=> item.category==='watch')
-      setProductsData(filteredProducts)
-    }
-
-    if (filterValue === 'wireless') {
-      const filteredProducts = products.filter(item=> item.category==='wireless')
-      setProductsData(filteredProducts)
-    }
-
+  
+    setProductsData(filteredProducts);
   };
-
+  
   const handleSearch = e => {
-    const searchTerm = e.target.value
-
-    const searchedProducts = products.filter(item => item.productName.toLowerCase().includes(searchTerm.toLowerCase()))
-    setProductsData(searchedProducts)
-  }
+    const searchTerm = e.target.value;
+    const searchedProducts = products.filter(
+      item => item.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setProductsData(searchedProducts);
+  };
+  
 
   return <Helmet title='shop'>
     <CommonSection title='Продукты' />
