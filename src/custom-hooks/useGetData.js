@@ -20,6 +20,7 @@ const useGetData = (collectionName) => {
         getData()
 
     }, []);
+    console.log(data, loading); // Добавьте эту строку
 
   return { data, loading };
 };

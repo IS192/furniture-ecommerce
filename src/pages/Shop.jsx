@@ -1,120 +1,113 @@
-import React, { useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
-
-import products from '../assets/data/products';
 import ProductsList from '../components/UI/ProductsList';
 import '../styles/shop.css';
-
 import useGetData from '../custom-hooks/useGetData';
 
 const Shop = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const { data: productsData, loading } = useGetData('products');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // 
-    const { data: productsData, setProductsData } = useGetData('products')
-    const [chair, setChairProducts] = useState([]);
-    const [sofa, setSofaProducts] = useState([]);
-    const [mobile, setMobileProducts] = useState([]);
-    const [wireless, setWirelessProducts] = useState([]);
-    const [watch, setWatchProducts] = useState([]);
-    
-    useEffect(() => {
-      // Функция для фильтрации продуктов по категории
-      const filterProductsByCategory = category => {
-        return products.filter(item => item.category === category);
-      };
+  const filtered = productsData.filter((product) => {
+    const titleMatch = product.title && product.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const categoryMatch = product.category && product.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return searchQuery.length === 0 || titleMatch || categoryMatch;
+  });
   
-      // Фильтрация продуктов при изменении состояния products
-      const filteredChairProducts = filterProductsByCategory('chair');
-      const filteredSofaProducts = filterProductsByCategory('sofa');
-      const filteredMobileProducts = filterProductsByCategory('mobile');
-      const filteredWirelessProducts = filterProductsByCategory('wireless');
-      const filteredWatchProducts = filterProductsByCategory('watch');
-  
-      setChairProducts(filteredChairProducts);
-      setSofaProducts(filteredSofaProducts);
-      setMobileProducts(filteredMobileProducts);
-      setWirelessProducts(filteredWirelessProducts);
-      setWatchProducts(filteredWatchProducts);
-    }, [products]);
-  
-  // 
 
-  const handleFilter = e => {
-    const selectedCategory = e.target.value;
-    let filteredProducts = [];
+  useEffect(() => {
+    if (!loading && productsData !== undefined) {
+      const filtered = productsData.filter((product) => {
+        if (searchQuery.length !== 0) {
+          return (
+            product.title &&
+            product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (product.category &&
+              product.category.toLowerCase().includes(searchQuery.toLowerCase()))
+          );
+        } else if (selectedCategory.length !== 0) {
+          return (
+            product.category &&
+            product.category.toLowerCase() === selectedCategory.toLowerCase()
+          );
+        } else {
+          return true;
+        }
+      });
   
-    if (selectedCategory === 'sofa') {
-      filteredProducts = sofa;
-    } else if (selectedCategory === 'mobile') {
-      filteredProducts = mobile;
-    } else if (selectedCategory === 'chair') {
-      filteredProducts = chair;
-    } else if (selectedCategory === 'watch') {
-      filteredProducts = watch;
-    } else if (selectedCategory === 'wireless') {
-      filteredProducts = wireless;
-    } else {
-      filteredProducts = products;
+      setFilteredProducts(filtered);
     }
+  }, [searchQuery, selectedCategory, productsData, loading]);
   
-    setProductsData(filteredProducts);
-  };
-  
-  const handleSearch = e => {
-    const searchTerm = e.target.value;
-    const searchedProducts = products.filter(
-      item => item.productName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setProductsData(searchedProducts);
+
+  const handleFilter = (e) => {
+    const filterValue = e.target.value.toLowerCase();
+    setSelectedCategory(filterValue === '' ? '' : filterValue.toLowerCase());
   };
   
 
-  return <Helmet title='shop'>
-    <CommonSection title='Продукты' />
+  const handleSearch = (event) => {
+    const value = event.target.value.toLowerCase(); // Приводим к нижнему регистру
+    setSearchQuery(value);
+  };
+  
 
-    <section>
-      <Container>
-        <Row>
-          <Col lg='3' md='6'>
-            <div className="filter__widget">
-              <select onChange={handleFilter}>
-                <option>Фильтровать по категории</option>
-                <option value="sofa">Диваны</option>
-                <option value="mobile">Мобильные телефоны</option>
-                <option value="chair">Стулы</option>
-                <option value="watch">Часы</option>
-                <option value="wireless">Аксессуары</option>
-              </select>
-            </div>
-          </Col>
-          
-          <Col lg='6' md='12'>
-            <div className="search__box">
-              <input type='text' placeholder='Поиск...' onChange={handleSearch} />
-              <span>
-                <i class="ri-search-line"></i>
-              </span>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-    
-    <section className='pt-0'>
-      <Container>
-        <Row>
-          {productsData.length === 0? (
-              <h1 className='text-center fs-4'>Товары не найдены</h1>
+  return (
+    <Helmet title="shop">
+      <CommonSection title="Продукты" />
+
+      <section>
+        <Container>
+          <Row>
+            <Col lg="3" md="6">
+              <div className="filter__widget">
+                <select value={selectedCategory} onChange={handleFilter}>
+                  <option value="">Все категории</option>
+                  <option value="sofa">Диваны</option>
+                  <option value="mobile">Мобильные телефоны</option>
+                  <option value="chair">Стулы</option>
+                  <option value="watch">Часы</option>
+                  <option value="wireless">Аксессуары</option>
+                </select>
+              </div>
+            </Col>
+
+            <Col lg="6" md="12">
+              <div className="search__box">
+                <input
+                  type="text"
+                  placeholder="Поиск..."
+                  value={searchQuery}
+                  onChange={handleSearch}
+                />
+                <span>
+                  <i className="ri-search-line"></i>
+                </span>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="pt-0">
+        <Container>
+          <Row>
+            {loading ? (
+              <h1 className="text-center fs-4">Загрузка...</h1>
+            ) : filteredProducts.length === 0 ? (
+              <h1 className="text-center fs-4">Товары не найдены</h1>
             ) : (
-              <ProductsList data={productsData} />
-          )}
-        </Row>
-      </Container>
-    </section>
-  </Helmet>
-}
+              <ProductsList data={filteredProducts} />
+            )}
+          </Row>
+        </Container>
+      </section>
+    </Helmet>
+  );
+};
 
-export default Shop
+export default Shop;

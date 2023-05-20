@@ -43,11 +43,11 @@ const AdminNav = () => {
                         </div>
                         <div className="search__box">
                             <input type="text" placeholder='Поиск...' />
-                            <span><i class="ri-search-line"></i></span>
+                            <span><i className="ri-search-line"></i></span>
                         </div>
                         <div className="admin__nav-top-right">
-                            <span><i class="ri-notification-3-line"></i></span>
-                            <span><i class="ri-settings-2-line"></i></span>
+                            <span><i className="ri-notification-3-line"></i></span>
+                            <span><i className="ri-settings-2-line"></i></span>
                             <img src={currentUser && currentUser.photoURL} alt="" />
                         </div>
                     </div>

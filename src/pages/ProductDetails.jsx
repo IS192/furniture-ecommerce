@@ -107,19 +107,19 @@ const ProductDetails = () => {
                 <div className='product__rating d-flex align-items-center gap-5 mb-3'>
                   <div>
                     <motion.span whileTap={{scale:1.2}} onClick={() => setRating(1)}>
-                      <i class="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
                     </motion.span>
                     <motion.span whileTap={{scale:1.2}} onClick={() => setRating(2)}>
-                      <i class="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
                     </motion.span>
                     <motion.span whileTap={{scale:1.2}} onClick={() => setRating(3)}>
-                      <i class="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
                     </motion.span>
                     <motion.span whileTap={{scale:1.2}} onClick={() => setRating(4)}>
-                      <i class="ri-star-s-fill"></i>
+                      <i className="ri-star-s-fill"></i>
                     </motion.span>
                     <motion.span whileTap={{scale:1.2}} onClick={() => setRating(5)}>
-                      <i class="ri-star-half-s-fill"></i>
+                      <i className="ri-star-half-s-fill"></i>
                     </motion.span>
                   </div>
                   <p>
