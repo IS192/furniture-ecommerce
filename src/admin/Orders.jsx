@@ -9,9 +9,9 @@ const Orders = () => {
 
   const navigate = useNavigate(); 
 
-  // const navigateToOrderedProducts =()=>{
-  //   navigate("/dashboard/orderedProducts");
-  // }
+  const navigateToOrderedProducts =()=>{
+    navigate("/dashboard/orderedProducts");
+  }
 
   return (
     <section>
@@ -36,28 +36,26 @@ const Orders = () => {
                 {ordersLoading ? (
                   <h4 className='py-5 text-center fw-bold'>Загрузка...</h4>
                 ) : (
-                    ordersData.map(product=>(
-                    <tr key={product.id}>
-                      <td>{product.name}</td>
+                    ordersData.map(orders => (
+                    <tr key={orders.id}>
+                      <td>{orders.name}</td>
                       <td>
-                        {/* <button
+                        <button
                           onClick={() => {
                             navigateToOrderedProducts()
                           }}
                           className='btn btn-link'
                         >
                           Посмотреть
-                        </button> */}
-                        {product.productName}
-                        {product.productQty}
+                        </button>
                       </td>
-                      <td>{product.email}</td>
-                      <td>{product.phoneNumber}</td>
-                      <td>{product.address}</td>
-                      <td>{product.city}</td>
-                      <td>{product.country}</td>
-                      <td>{product.totalQty} шт</td>
-                      <td>{product.totalAmount} KZT</td>
+                      <td>{orders.email}</td>
+                      <td>{orders.phoneNumber}</td>
+                      <td>{orders.address}</td>
+                      <td>{orders.city}</td>
+                      <td>{orders.country}</td>
+                      <td>{orders.totalQty} шт</td>
+                      <td>{orders.totalAmount} KZT</td>
                     </tr>
                   ))
                 )}

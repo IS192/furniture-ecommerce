@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../redux/slices/cartSlice'
 
-const ProductsCard = ({ item }) => {
+const ProductCard = ({ item }) => {
 
   const dispatch = useDispatch();
   const addToCart = () => {
@@ -47,4 +47,4 @@ const ProductsCard = ({ item }) => {
   );
 };
 
-export default ProductsCard
+export default ProductCard

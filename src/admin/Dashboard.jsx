@@ -8,7 +8,6 @@ const Dashboard = () => {
   const {data: products} = useGetData('products');
   const {data: users} = useGetData('users');
   const {data: orders} = useGetData('orders');
-  // const {data: orderedProducts} = useGetData('dashboard/orderedProducts');
 
   return <>
     <section>

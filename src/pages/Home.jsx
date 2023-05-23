@@ -20,7 +20,7 @@ const Home = () => {
 
   const [chairProducts, setChairProducts] = useState([]);
   const [sofaProducts, setSofaProducts] = useState([]);
-  const [mobileProducts, setMobileProducts] = useState([]);
+  const [tableProducts, setTableProducts] = useState([]);
   const [wirelessProducts, setWirelessProducts] = useState([]);
   const [watchProducts, setWatchProducts] = useState([]);
   
@@ -35,8 +35,8 @@ const Home = () => {
       item => item.category === 'sofa'
     );
     
-    const filteredMobileProducts = products.filter(
-      item => item.category === 'mobile'
+    const filteredTableProducts = products.filter(
+      item => item.category === 'table'
     );
     
     const filteredWirelessProducts = products.filter(
@@ -49,7 +49,7 @@ const Home = () => {
     
     setChairProducts(filteredChairProducts);
     setSofaProducts(filteredSofaProducts);
-    setMobileProducts(filteredMobileProducts);
+    setTableProducts(filteredTableProducts);
     setWirelessProducts(filteredWirelessProducts);
     setWatchProducts(filteredWatchProducts);
   }, [products]);
@@ -116,13 +116,13 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              <h2 className="section__title">Мобильные телефоны</h2>
+              <h2 className="section__title">Столы</h2>
             </Col>
             {
               loading ? (
                 <h5 className='fw-bold'>Загрузка...</h5>
               ) : (
-                <ProductsList data={mobileProducts} />
+                <ProductsList data={tableProducts} />
               )
             }
           </Row>

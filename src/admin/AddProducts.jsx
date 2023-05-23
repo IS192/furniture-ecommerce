@@ -114,7 +114,7 @@ const AddProducts = () => {
                         <option>Select category</option>
                         <option value="chair">Стул</option>
                         <option value="sofa">Диван</option>
-                        <option value="mobile">Мобильный телефон</option>
+                        <option value="table">Столы</option>
                         <option value="watch">Часы</option>
                         <option value="wireless">Аксессуары</option>
                       </select>

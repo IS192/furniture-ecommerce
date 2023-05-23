@@ -68,7 +68,7 @@ const Shop = () => {
                 <select value={selectedCategory} onChange={handleFilter}>
                   <option value="">Все категории</option>
                   <option value="sofa">Диваны</option>
-                  <option value="mobile">Мобильные телефоны</option>
+                  <option value="table">Столы</option>
                   <option value="chair">Стулы</option>
                   <option value="watch">Часы</option>
                   <option value="wireless">Аксессуары</option>
