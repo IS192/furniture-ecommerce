@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import useGetData from '../custom-hooks/useGetData';
 import { useNavigate } from 'react-router-dom';
+import Checkout from '../pages/Checkout';
 
 const Orders = () => {
 
@@ -40,14 +41,15 @@ const Orders = () => {
                     <tr key={orders.id}>
                       <td>{orders.name}</td>
                       <td>
-                        <button
+                        {/* <button
                           onClick={() => {
                             navigateToOrderedProducts()
                           }}
                           className='btn btn-link'
                         >
                           Посмотреть
-                        </button>
+                        </button> */}
+                        {orders.productNameAndProductQty} //  ! ******
                       </td>
                       <td>{orders.email}</td>
                       <td>{orders.phoneNumber}</td>

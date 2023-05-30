@@ -85,7 +85,7 @@ const Home = () => {
       <section className="trending__products">
         <Container>
           <Row>
-            <Col lg='12' className='text-center'>
+            <Col lg='12' className='text-center mb-5'>
               <h2 className='section__title'>
                 Cтулы
               </h2>
@@ -100,7 +100,7 @@ const Home = () => {
       <section className="best__sales">
         <Container>
           <Row>
-            <Col lg='12' className='text-center'>
+            <Col lg='12' className='text-center mb-5'>
               <h2 className='section__title'>
                 Диваны
               </h2>

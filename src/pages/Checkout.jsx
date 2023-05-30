@@ -15,6 +15,7 @@ const Checkout = () => {
 	const totalAmount = useSelector((state) => state.cart.totalAmount);
 	
 	const [userName, setName] = useState('');
+	const [productNameAndProductQty, setProductNameAndProductQty] = useState(''); //  ! ******
 	const [email, setEmail] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('');
 	const [address, setAddress] = useState('');
@@ -40,6 +41,7 @@ const Checkout = () => {
 		try {
 			await setDoc(doc(db, 'orders', newOrderName), {
 				name: userName,
+				productNameAndProductQty, //  ! ******
 				email,
 				phoneNumber,
 				address,
@@ -49,7 +51,9 @@ const Checkout = () => {
 				totalAmount,
       		});
 			
-			
+			// await setDoc(doc(db, 'orderedProducts', newOrderName), {
+			// 	productUserName: userName,
+			// });			
 
 			toast.success('Ваш заказ был завершен успешно');
 		} catch (error) {
@@ -72,6 +76,14 @@ const Checkout = () => {
 										onChange={(e) => setName(e.target.value)}
 										type='text'
 										placeholder='Введите ваше имя'
+										required
+									/>
+								</FormGroup>
+								<FormGroup className='form__group'>
+									<input
+										onChange={(e) => setProductNameAndProductQty(e.target.value)} //  ! ******
+										type='text'
+										placeholder='Название продуктов, количество'
 										required
 									/>
 								</FormGroup>
