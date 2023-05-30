@@ -49,7 +49,7 @@ const Orders = () => {
                         >
                           Посмотреть
                         </button> */}
-                        {orders.productNameAndProductQty} //  ! ******
+                        {orders.productNameAndProductQty}
                       </td>
                       <td>{orders.email}</td>
                       <td>{orders.phoneNumber}</td>
